@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Painel | Perfumaria </title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Passo Fino">
+        <span class="brand-mark">PO</span>
+        <span>Perfumaria Online</span>
+      </a>
+      <nav class="main-nav" aria-label="Navegacao do painel">
+        <a href="index.html">Loja</a>
+        <a href="#relatorios">Relatorios</a>
+        <a href="#novo-produto">Adicionar Perfume</a>
+        <a href="#pedidos">Pedidos</a>
+        <a href="#acesso">Acesso</a>
+      </nav>
+      <button class="cart-button" id="logoutButton" type="button">
+        <span>Sair</span>
+      </button>
+    </header>
+
+    <main class="admin-shell">
+      <section class="admin-intro">
+        <p class="eyebrow">Painel da loja</p>
+        <h1>Adicionar Perfume</h1>
+        <p>Cadastre a foto, informacoes e tamanhos disponiveis. O produto aparece na loja automaticamente.</p>
+      </section>
+
+      <section class="reports-panel" id="relatorios">
+        <div class="report-card">
+          <span>Total vendido</span>
+          <strong id="reportRevenue">0 Kz</strong>
+        </div>
+        <div class="report-card">
+          <span>Pedidos</span>
+          <strong id="reportOrders">0</strong>
+        </div>
+        <div class="report-card">
+          <span>Produtos vendidos</span>
+          <strong id="reportItems">0</strong>
+        </div>
+        <div class="report-card">
+          <span>Ticket medio</span>
+          <strong id="reportAverage">0 Kz</strong>
+        </div>
+      </section>
+
+      <section class="admin-grid" id="novo-produto">
+        <form class="product-form" id="productForm">
+          <label>
+            <span>Nome do Perfume</span>
+            <input id="productName" type="text" placeholder="Ex: Gold" required />
+          </label>
+
+          <div class="form-row">
+            <label>
+              <span>Categoria</span>
+              <select id="productCategory" required>
+                <option value="Masculino">Masculino</option>
+                <option value="Feminino">Feminino</option>
+                <option value="Unissexo">Unissexo</option>
+                <option value="Importados">Importados</option>
+                 <option value="Nacionais">Nacionais</option>
+                  <option value="Árabe">Árabe</option>
+                   <option value="Luxo">Luxo</option>
+                   <option value="Body Splash">Body Splash</option>
+                   <option value="Kits">Kits</option>
+              </select>
+            </label>
+            <label>
+              <span>Preco em Kz</span>
+              <input id="productPrice" type="number" min="1" placeholder="45000" required />
+            </label>
+          </div>
+
+          <div class="form-row">
+            <label>
+              <span>Cor do Frasco</span>
+              <input id="productColor" type="text" placeholder="Preto, branco, castanho..." required />
+            </label>
+            <label>
+              <span>Tamanhos</span>
+              <input id="productSizes" type="text" placeholder="50 ml, 75 ml " required />
+            </label>
+          </div>
+
+          <div class="form-row">
+            <label>
+              <span>Quantidade em estoque</span>
+              <input id="productStock" type="number" min="0" placeholder="12" required />
+            </label>
+            <label class="check-field">
+              <input id="productAvailable" type="checkbox" checked />
+              <span>Disponivel para venda</span>
+            </label>
+          </div>
+
+          <label>
+            <span>Imagem do Perfume</span>
+            <input id="productImage" type="file" accept="image/*" required />
+          </label>
+
+          <div class="preview-box">
+            <img id="imagePreview" alt="Pre-visualizacao da imagem" />
+            <span id="previewText">A imagem escolhida aparece aqui.</span>
+          </div>
+
+          <p class="form-alert form-success" id="formAlert" role="status"></p>
+          <button class="checkout-button" type="submit">Guardar produto</button>
+        </form>
+
+        <aside class="admin-products">
+          <div class="catalog-toolbar">
+            <strong>Produtos cadastrados</strong>
+            <button class="secondary-action admin-small-action" id="clearProducts" type="button">Limpar</button>
+          </div>
+          <div class="admin-list" id="adminList"></div>
+        </aside>
+      </section>
+
+      <section class="orders-panel" id="pedidos">
+        <div class="catalog-toolbar">
+          <div>
+            <p class="eyebrow">Vendas</p>
+            <h2>Pedidos com comprovativo</h2>
+          </div>
+          <button class="secondary-action admin-small-action" id="clearOrders" type="button">Limpar pedidos</button>
+        </div>
+        <div class="orders-list" id="ordersList"></div>
+      </section>
+
+      <section class="settings-panel" id="acesso">
+        <div>
+          <p class="eyebrow">Seguranca</p>
+          <h2>Alterar usuario e palavra-passe</h2>
+          <p>Depois de guardar, use os novos dados na proxima entrada no painel.</p>
+        </div>
+
+        <form class="product-form" id="credentialsForm">
+          <div class="form-row">
+            <label>
+              <span>Novo usuario</span>
+              <input id="newUsername" type="text" autocomplete="username" required />
+            </label>
+            <label>
+              <span>Palavra-passe atual</span>
+              <input id="currentPassword" type="password" autocomplete="current-password" required />
+            </label>
+          </div>
+          <div class="form-row">
+            <label>
+              <span>Nova palavra-passe</span>
+              <input id="newPassword" type="password" autocomplete="new-password" required />
+            </label>
+            <label>
+              <span>Confirmar palavra-passe</span>
+              <input id="confirmPassword" type="password" autocomplete="new-password" required />
+            </label>
+          </div>
+          <p class="form-alert" id="credentialsAlert" role="status"></p>
+          <button class="checkout-button" type="submit">Guardar novo acesso</button>
+        </form>
+      </section>
+    </main>
+
+    <script src="admin.js"></script>
+  </body>
+</html>

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login | Passo Fino</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="auth-page">
+    <main class="auth-shell">
+      <section class="auth-panel">
+        <a class="brand" href="index.html" aria-label="Voltar para Passo Fino">
+          <span class="brand-mark">PF</span>
+          <span>Passo Fino</span>
+        </a>
+
+        <div class="auth-copy">
+          <p class="eyebrow">Area administrativa</p>
+          <h1>Entrar no painel</h1>
+          <p>Use o login para adicionar imagens e informacoes dos calcados da loja.</p>
+        </div>
+
+        <form class="auth-form" id="loginForm">
+          <label>
+            <span>Usuario</span>
+            <input id="username" type="text" autocomplete="username" placeholder="admin" required />
+          </label>
+          <label>
+            <span>Senha</span>
+            <input id="password" type="password" autocomplete="current-password" placeholder="1234" required />
+          </label>
+          <p class="form-alert" id="loginAlert" role="alert"></p>
+          <button class="checkout-button" type="submit">Entrar</button>
+        </form>
+      </section>
+
+      <section class="auth-image" aria-label="Calcado em destaque">
+        <img
+          src="https://tse4.mm.bing.net/th/id/OIP.nY_CZ_Agq21qN6C9_xcD7wHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+          alt=""
+        />
+      </section>
+    </main>
+
+    <script>
+      const form = document.querySelector("#loginForm");
+      const alertBox = document.querySelector("#loginAlert");
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const user = document.querySelector("#username").value.trim();
+        const password = document.querySelector("#password").value.trim();
+
+        const credentials = JSON.parse(
+          localStorage.getItem("passoFinoCredentials") || '{"user":"admin","password":"1234"}',
+        );
+
+        if (user === credentials.user && password === credentials.password) {
+          localStorage.setItem("passoFinoLoggedIn", "true");
+          window.location.href = "admin.html";
+          return;
+        }
+
+        alertBox.textContent = "Usuario ou senha incorretos.";
+      });
+    </script>
+  </body>
+</html>

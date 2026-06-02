@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Perfumaria Online | Loja online de Perfume</title>
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#inicio" aria-label="Perfumaria Online - Voltar para o início">
+        <span class="brand-mark">PO</span>
+        <span>Perfumaria Online</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegacao principal">
+        <a href="#catalogo">Catalogo</a>
+        <a href="#colecoes">Colecoes</a>
+        <a href="#entrega">Entrega</a>
+      </nav>
+
+      <button class="cart-button" type="button" aria-label="Abrir carrinho">
+        <span>Carrinho</span>
+        <strong id="cartCount">0</strong>
+      </button>
+    </header>
+
+    <main id="inicio">
+      <section class="hero" aria-labelledby="heroTitle">
+        <div class="hero-copy">
+          <p class="eyebrow">Perfume premium em Angola</p>
+          <h1 id="heroTitle">Passo Fino</h1>
+          <p>
+            Uma seleção exclusiva de perfumes e essências premium para quem valoriza 
+            elegância, sofisticação e qualidade.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-action" href="#catalogo">Comprar agora</a>
+            <a class="secondary-action" href="#colecoes">Ver colecoes</a>
+          </div>
+        </div>
+        <div class="hero-media" aria-label="Destaque de Perfumes">
+          <img
+            src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=1200&q=85"
+            alt="Perfumes em destaque"
+          />
+        </div>
+      </section>
+
+      <section class="trust-strip" aria-label="Beneficios da loja">
+        <div>
+          <strong>Entrega rapida</strong>
+          <span>Luanda em 24h</span>
+        </div>
+        <div>
+          <strong>Troca simples</strong>
+          <span>7 dias para trocar</span>
+        </div>
+        <div>
+          <strong>Pagamento flexivel</strong>
+          <span>TPA, transferencia e cash</span>
+        </div>
+      </section>
+
+      <section class="section-head" id="catalogo">
+        <div>
+          <p class="eyebrow">Catalogo</p>
+          <h2>Explore nossa coleção de perfumes exclusivos</h2>
+        </div>
+        <label class="search-box">
+          <span>Pesquisar</span>
+          <input id="searchInput" type="search" placeholder="Nome, Marca ou fragrância" />
+        </label>
+      </section>
+
+      <section class="shop-layout">
+        <aside class="filters" aria-label="Filtros de produtos">
+          <h3>Filtros</h3>
+          <div class="filter-group" id="categoryFilters">
+            <button class="filter is-active" type="button" data-category="Todos">Todos</button>
+            <button class="filter" type="button" data-category="Masculino">Masculino</button>
+            <button class="filter" type="button" data-category="Feminino">Feminino</button>
+            <button class="filter" type="button" data-category="Unissexo">Unissexo</button>
+            <button class="filter" type="button" data-category="Importados">Importados</button>
+            <button class="filter" type="button" data-category="Nacionais">Nacionais</button>
+            <button class="filter" type="button" data-category="Árabe">Árabe</button>
+            <button class="filter" type="button" data-category="Luxo">Luxo</button>
+            <button class="filter" type="button" data-category="Body Splash">Body Splash</button>
+            <button class="filter" type="button" data-category="Kits">Kits</button>
+          </div>
+
+          <div class="filter-block">
+            <span>Tamanho</span>
+            <div class="size-grid" id="sizeFilters">
+              <button type="button" data-size="30">30 ml</button>
+              <button type="button" data-size="50">50 ml</button>
+              <button type="button" data-size="75">75 ml</button>
+              <button type="button" data-size="100">100 ml</button>
+              <button type="button" data-size="125">125 ml</button>
+              <button type="button" data-size="150">150 ml</button>
+              <button type="button" data-size="200">200 ml</button>
+            </div>
+          </div>
+        </aside>
+
+        <div>
+          <div class="catalog-toolbar">
+            <span id="resultCount">0 produtos</span>
+            <select id="sortSelect" aria-label="Ordenar produtos">
+              <option value="featured">Destaques</option>
+              <option value="low">Menor preco</option>
+              <option value="high">Maior preco</option>
+            </select>
+          </div>
+          <div class="product-grid" id="productGrid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="collections" id="colecoes">
+        <div class="collection-copy">
+          <p class="eyebrow">Coleção Exclusiva</p>
+          <h2>Fragrâncias para marcar cada momento.</h2>
+          <p>
+            Descubra perfumes selecionados para o dia a dia, eventos especiais
+      e ocasiões inesquecíveis. Aromas que expressam personalidade,
+      elegância e sofisticação.
+          </p>
+        </div>
+        <div class="collection-grid">
+          <article>
+            <img
+              src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=700&q=85"
+              alt="Perfume masculino"
+            />
+            <span>Masculino</span>
+          </article>
+          <article>
+            <img
+              src="https://static.stealthelook.com.br/wp-content/uploads/2024/06/perfumes-femininos-importados-mais-vendidos-beleza-fragrancia-perfume-steal-the-look-8-20240620142622.webp"
+              alt="Perfume feminino"
+            />
+            <span>Feminino</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="delivery" id="entrega">
+        <h2>Entrega e apoio</h2>
+        <div class="delivery-grid">
+          <div>
+            <strong>Luanda</strong>
+            <p>Entrega no mesmo dia para pedidos confirmados ate as 13h.</p>
+          </div>
+          <div>
+            <strong>Outras provincias</strong>
+            <p>Envio por transportadora com confirmacao por WhatsApp.</p>
+          </div>
+          <div>
+            <strong>Atendimento</strong>
+            <p>Ajuda na escolha do tamanho antes de finalizar a compra.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <aside class="cart-panel" id="cartPanel" aria-hidden="true" aria-label="Carrinho de compras">
+      <div class="cart-panel__head">
+        <h2>Carrinho</h2>
+        <button class="icon-button" id="closeCart" type="button" aria-label="Fechar carrinho">x</button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-empty" id="cartEmpty">O carrinho ainda esta vazio.</div>
+      <div class="cart-total">
+        <span>Total</span>
+        <strong id="cartTotal">0 Kz</strong>
+      </div>
+      <form class="payment-form" id="paymentForm">
+        <div class="payment-box">
+          <strong>Pagamento por Express</strong>
+          <span>Envie o total para o numero 933 135 998 e carregue o comprovativo.</span>
+        </div>
+        <label>
+          <span>Nome do cliente</span>
+          <input id="customerName" type="text" placeholder="O seu nome" required />
+        </label>
+        <label>
+          <span>Telefone</span>
+          <input id="customerPhone" type="tel" placeholder="9xx xxx xxx" required />
+        </label>
+        <label>
+          <span>Comprovativo de pagamento</span>
+          <input id="paymentProof" type="file" accept="image/*,.pdf" required />
+        </label>
+        <p class="form-alert form-success" id="paymentAlert" role="status"></p>
+        <button class="checkout-button" type="submit">Finalizar pedido</button>
+      </form>
+    </aside>
+    <div class="overlay" id="overlay"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
