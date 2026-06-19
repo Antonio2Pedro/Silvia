@@ -42,28 +42,32 @@
       </section>
     </main>
 
-    <script>
-      const form = document.querySelector("#loginForm");
-      const alertBox = document.querySelector("#loginAlert");
+   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
 
-      form.addEventListener("submit", (event) => {
-        event.preventDefault();
+<script>
+const form = document.querySelector("#loginForm");
+const alertBox = document.querySelector("#loginAlert");
 
-        const user = document.querySelector("#username").value.trim();
-        const password = document.querySelector("#password").value.trim();
+form.addEventListener("submit", async (event) => {
 
-        const credentials = JSON.parse(
-          localStorage.getItem("passoFinoCredentials") || '{"user":"admin","password":"1234"}',
-        );
+  event.preventDefault();
 
-        if (user === credentials.user && password === credentials.password) {
-          localStorage.setItem("passoFinoLoggedIn", "true");
-          window.location.href = "admin.html";
-          return;
-        }
+  const email = document.querySelector("#username").value.trim();
+  const password = document.querySelector("#password").value.trim();
 
-        alertBox.textContent = "Usuario ou senha incorretos.";
-      });
-    </script>
+  const { error } = await supabaseClient.auth.signInWithPassword({
+    email,
+    password
+  });
+
+  if (error) {
+    alertBox.textContent = error.message;
+    return;
+  }
+
+  window.location.href = "admin.html";
+});
+</script>
   </body>
 </html>
